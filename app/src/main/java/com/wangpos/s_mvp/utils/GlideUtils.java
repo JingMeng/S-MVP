@@ -26,7 +26,7 @@ package com.wangpos.s_mvp.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -45,7 +45,7 @@ public class GlideUtils {
     private static final String TAG = "GlideUtils";
 
     /**
-     * glide加载图片
+     * glide鍔犺浇鍥剧墖
      *
      * @param view view
      * @param url  url
@@ -59,7 +59,7 @@ public class GlideUtils {
             return;
         }
         Context context = view.getContext();
-        // View你还活着吗？
+        // View浣犺繕娲荤潃鍚楋紵
         if (context instanceof Activity) {
             if (((Activity) context).isFinishing()) {
                 return;
@@ -112,7 +112,7 @@ public class GlideUtils {
             return;
         }
         Context context = view.getContext();
-        // View你还活着吗？
+        // View浣犺繕娲荤潃鍚楋紵
         if (context instanceof Activity) {
             if (((Activity) context).isFinishing()) {
                 return;
@@ -140,3 +140,4 @@ public class GlideUtils {
 
 
 }
+

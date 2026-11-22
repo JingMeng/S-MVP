@@ -1,19 +1,22 @@
-import com.app.plugin.AspectjPlugin
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
 
 apply plugin: 'com.android.application'
 
 
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    namespace 'com.wangpos.s_mvp'
+    compileSdk 34
+    buildFeatures { buildConfig = true }
     defaultConfig {
         applicationId "com.wangpos.s_mvp"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdk 15
+        targetSdk 34
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         renderscriptTargetApi 20
         renderscriptSupportModeEnabled true
         vectorDrawables.useSupportLibrary = true
@@ -35,8 +38,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
@@ -53,31 +56,32 @@ ext {
     rxandroidVersion = "2.0.2"
 }
 dependencies {
+    implementation 'org.aspectj:aspectjrt:1.9.22'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 //    compile 'com.android.support:appcompat-v7:26.0.0-beta1'
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
     annotationProcessor project(':libcomplier')
-    compile project(path: ':libannotation')
+    implementation project(path: ':libannotation')
 
 
-    compile "android.arch.lifecycle:runtime:1.0.0-alpha4"
-    compile "android.arch.lifecycle:extensions:1.0.0-alpha4"
+    implementation "android.arch.lifecycle:runtime:1.0.0-alpha4"
+    implementation "android.arch.lifecycle:extensions:1.0.0-alpha4"
     annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha4"
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$logginginterceptor"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
     implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
@@ -85,4 +89,23 @@ dependencies {
 
 }
 
-apply plugin: AspectjPlugin
+android.applicationVariants.all { variant ->
+    variant.javaCompileProvider.configure { compileTask ->
+        doLast {
+            def output = compileTask.destinationDirectory.get().asFile
+            String[] args = ['-11', '-inpath', output.absolutePath,
+                '-aspectpath', compileTask.classpath.asPath, '-d', output.absolutePath,
+                '-classpath', compileTask.classpath.asPath,
+                '-bootclasspath', android.bootClasspath.join(File.pathSeparator)]
+            def handler = new MessageHandler(true)
+            new Main().run(args, handler)
+            handler.getMessages(null, true).each { message ->
+                if (message.kind == IMessage.ERROR || message.kind == IMessage.FAIL || message.kind == IMessage.ABORT) {
+                    throw new GradleException("AspectJ weaving failed: ${message.message}")
+                }
+            }
+        }
+    }
+}
+
+

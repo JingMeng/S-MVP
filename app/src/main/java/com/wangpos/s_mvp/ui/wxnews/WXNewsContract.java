@@ -1,6 +1,6 @@
 package com.wangpos.s_mvp.ui.wxnews;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 import com.wangpos.s_mvp.base.BaseModel;
 import com.wangpos.s_mvp.base.BasePresenter;
@@ -53,8 +53,7 @@ public interface WXNewsContract {
 
         @Override
         public void onDetached() {
-            //先取消注册
-            mModel.onUnSubscribe();
+            //鍏堝彇娑堟敞鍐?            mModel.onUnSubscribe();
             super.onDetached();
         }
 
@@ -64,3 +63,4 @@ public interface WXNewsContract {
 
     }
 }
+

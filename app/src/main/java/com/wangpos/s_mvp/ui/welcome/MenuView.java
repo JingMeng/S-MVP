@@ -3,7 +3,7 @@ package com.wangpos.s_mvp.ui.welcome;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
@@ -50,7 +50,7 @@ public class MenuView extends LifeFrameLayout implements WelcomeContract.View{
     @Override
     public void ON_CREATE() {
         super.ON_CREATE();
-        //notice 初始化presenter
+        //notice 鍒濆鍖杙resenter
         InjectView.bind(this);
         smartTaskManager = SmartTaskManager.as();
         mPresenter = new WelcomePresenter();
@@ -64,7 +64,7 @@ public class MenuView extends LifeFrameLayout implements WelcomeContract.View{
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 if (count[0] >0){
-                    tvTime.setText("MenuView独立加载("+count[0]+")");
+                    tvTime.setText("MenuView鐙珛鍔犺浇("+count[0]+")");
                     count[0]--;
                     mHandler.sendEmptyMessageDelayed(0,1000);
                 }else{
@@ -94,3 +94,4 @@ public class MenuView extends LifeFrameLayout implements WelcomeContract.View{
         mPresenter.onDetached();
     }
 }
+

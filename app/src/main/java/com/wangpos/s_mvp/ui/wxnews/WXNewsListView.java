@@ -2,8 +2,8 @@ package com.wangpos.s_mvp.ui.wxnews;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -94,3 +94,4 @@ public class WXNewsListView extends LifeRecyclerView<WXNewsPresenter> implements
 
     }
 }
+

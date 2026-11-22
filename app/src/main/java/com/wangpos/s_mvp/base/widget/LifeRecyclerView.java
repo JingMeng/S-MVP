@@ -1,11 +1,11 @@
 package com.wangpos.s_mvp.base.widget;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -54,10 +54,9 @@ public class LifeRecyclerView<P extends BasePresenter> extends RecyclerView impl
             Class mPresenterClass = (Class) ((ParameterizedType) (this.getClass()
                     .getGenericSuperclass())).getActualTypeArguments()[0];
             /**
-             * 根据运行时获取父类Class,实力化，不至于每个子类Presenter都去new
+             * 鏍规嵁杩愯鏃惰幏鍙栫埗绫籆lass,瀹炲姏鍖栵紝涓嶈嚦浜庢瘡涓瓙绫籔resenter閮藉幓new
              *
-             * 1优点，这样子类只需要指定泛型即可使用
-             *
+             * 1浼樼偣锛岃繖鏍峰瓙绫诲彧闇€瑕佹寚瀹氭硾鍨嬪嵆鍙娇鐢?             *
              */
             try {
                 mPresenter = (P)mPresenterClass.newInstance();
@@ -96,4 +95,5 @@ public class LifeRecyclerView<P extends BasePresenter> extends RecyclerView impl
         iBase.toast(msg);
     }
 }
+
 

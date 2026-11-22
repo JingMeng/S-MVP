@@ -2,7 +2,7 @@ package com.wangpos.s_mvp.ui.synctask;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -36,8 +36,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗时1500秒
-     */
+     * 妯℃嫙鍔犺浇鍥剧墖鑰楁椂1500绉?     */
     public void loadImage1(ImageView imageView){
         stk.onNext(obj ->
             mHandler.postDelayed(new Runnable() {
@@ -51,8 +50,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
 
     }
     /**
-     * 模拟加载图片耗时1000秒
-     */
+     * 妯℃嫙鍔犺浇鍥剧墖鑰楁椂1000绉?     */
     public void loadImage2(ImageView imageView){
         stk.onNext(obj ->
             mHandler.postDelayed(new Runnable() {
@@ -67,8 +65,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗时1000秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰楁椂1000绉?     * @param imageView
      */
     public void loadImage3(ImageView imageView){
         stk.onNext(obj ->
@@ -85,8 +82,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗500秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰?00绉?     * @param imageView
      */
     public void loadImage4(ImageView imageView){
         stk.onNext(obj ->
@@ -102,8 +98,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗800秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰?00绉?     * @param imageView
      */
     public void loadImage5(ImageView imageView){
         stk.onNext(obj ->
@@ -119,8 +114,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗1000秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰?000绉?     * @param imageView
      */
     public void loadImage6(ImageView imageView){
         stk.onNext(obj ->
@@ -136,8 +130,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗200秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰?00绉?     * @param imageView
      */
     public void loadImage7(ImageView imageView){
         stk.onNext(obj ->
@@ -153,8 +146,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
     }
 
     /**
-     * 模拟加载图片耗300秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰?00绉?     * @param imageView
      */
     public void loadImage8(ImageView imageView){
         stk.onNext(obj ->
@@ -169,8 +161,7 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
 
     }
     /**
-     * 模拟加载图片耗700秒
-     * @param imageView
+     * 妯℃嫙鍔犺浇鍥剧墖鑰?00绉?     * @param imageView
      */
     public void loadImage9(ImageView imageView){
         stk.onNext(obj ->
@@ -194,3 +185,4 @@ public class ImagePresenter extends SyncTaskContract.Presenter{
         mHandler.removeCallbacksAndMessages(null);
     }
 }
+

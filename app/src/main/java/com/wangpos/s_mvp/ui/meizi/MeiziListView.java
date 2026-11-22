@@ -1,9 +1,9 @@
 package com.wangpos.s_mvp.ui.meizi;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -54,8 +54,7 @@ public class MeiziListView extends LifeRecyclerView<MeiziPresenter> implements M
         if(meiziResult.getShowapi_res_body().getPagebean().getContentlist()!=null) {
             List<MeiziResult.ShowapiResBodyBean.PagebeanBean.ContentlistBean> contentlistBean = meiziResult.getShowapi_res_body().getPagebean().getContentlist();
             for (int i=0;i<6;i++){
-                //前6个太丑，干掉……
-                contentlistBean.remove(0);
+                //鍓?涓お涓戯紝骞叉帀鈥︹€?                contentlistBean.remove(0);
             }
             adapter.setDatas(contentlistBean);
             adapter.notifyDataSetChanged();
@@ -95,3 +94,4 @@ public class MeiziListView extends LifeRecyclerView<MeiziPresenter> implements M
         mPresenter.onDetached();
     }
 }
+

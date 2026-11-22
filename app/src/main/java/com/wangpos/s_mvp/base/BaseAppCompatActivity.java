@@ -4,10 +4,10 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,15 +47,14 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
 
 
     /**
-     * 默认启动Activity,不传递任何参数
-     * @param ActivityClass
+     * 榛樿鍚姩Activity,涓嶄紶閫掍换浣曞弬鏁?     * @param ActivityClass
      */
     protected void launch(Class<?> ActivityClass) {
         startActivity(new Intent(this,ActivityClass));
     }
 
     /**
-     * 启动网页
+     * 鍚姩缃戦〉
      * @param url
      */
     protected void launch(String url) {
@@ -82,8 +81,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     }
 
     private View getContainer(View rootView) {
-        //notice 可以做子布局，添加包装
-//        View container = getLayoutInflater().inflate(R.layout.activity_base, null, false);
+        //notice 鍙互鍋氬瓙甯冨眬锛屾坊鍔犲寘瑁?//        View container = getLayoutInflater().inflate(R.layout.activity_base, null, false);
 //        container.addView();
         return rootView;
     }
@@ -126,3 +124,4 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
         InjectView.unbind(this);
     }
 }
+

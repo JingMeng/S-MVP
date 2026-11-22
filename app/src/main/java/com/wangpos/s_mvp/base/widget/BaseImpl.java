@@ -1,7 +1,7 @@
 package com.wangpos.s_mvp.base.widget;
 
 import android.content.Context;
-import android.support.annotation.ColorRes;
+import androidx.annotation.ColorRes;
 import android.widget.Toast;
 
 /**

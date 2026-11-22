@@ -9,8 +9,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,7 @@ import java.util.List;
  * Created by zhouyou on 2016/11/17.
  * Class desc:
  * <p>
- * 6.0 运行时权限处理工具类。
- */
+ * 6.0 杩愯鏃舵潈闄愬鐞嗗伐鍏风被銆? */
 public class MPermissionUtils {
 
     private static int mRequestCode = -1;
@@ -35,18 +34,17 @@ public class MPermissionUtils {
         requestPermissions(fragment, requestCode, permission, callback);
     }
 
-    public static void requestPermissionsResult(android.support.v4.app.Fragment fragment, int requestCode
+    public static void requestPermissionsResult(androidx.fragment.app.Fragment fragment, int requestCode
             , String[] permission, OnPermissionListener callback) {
         requestPermissions(fragment, requestCode, permission, callback);
     }
 
     /**
-     * 请求权限处理
+     * 璇锋眰鏉冮檺澶勭悊
      *
      * @param object      activity or fragment
-     * @param requestCode 请求码
-     * @param permissions 需要请求的权限
-     * @param callback    结果回调
+     * @param requestCode 璇锋眰鐮?     * @param permissions 闇€瑕佽姹傜殑鏉冮檺
+     * @param callback    缁撴灉鍥炶皟
      */
     @TargetApi(Build.VERSION_CODES.M)
     private static void requestPermissions(Object object, int requestCode
@@ -68,8 +66,8 @@ public class MPermissionUtils {
                 } else if (object instanceof android.app.Fragment) {
                     ((android.app.Fragment) object).requestPermissions(deniedPermissions
                             .toArray(new String[deniedPermissions.size()]), requestCode);
-                } else if (object instanceof android.support.v4.app.Fragment) {
-                    ((android.support.v4.app.Fragment) object).requestPermissions(deniedPermissions
+                } else if (object instanceof androidx.fragment.app.Fragment) {
+                    ((androidx.fragment.app.Fragment) object).requestPermissions(deniedPermissions
                             .toArray(new String[deniedPermissions.size()]), requestCode);
                 } else {
                     mRequestCode = -1;
@@ -79,14 +77,13 @@ public class MPermissionUtils {
     }
 
     /**
-     * 获取上下文
-     */
+     * 鑾峰彇涓婁笅鏂?     */
     private static Context getContext(Object object) {
         Context context;
         if (object instanceof android.app.Fragment) {
             context = ((android.app.Fragment) object).getActivity();
-        } else if (object instanceof android.support.v4.app.Fragment) {
-            context = ((android.support.v4.app.Fragment) object).getActivity();
+        } else if (object instanceof androidx.fragment.app.Fragment) {
+            context = ((androidx.fragment.app.Fragment) object).getActivity();
         } else {
             context = (Activity) object;
         }
@@ -94,8 +91,7 @@ public class MPermissionUtils {
     }
 
     /**
-     * 请求权限结果，对应onRequestPermissionsResult()方法。
-     */
+     * 璇锋眰鏉冮檺缁撴灉锛屽搴攐nRequestPermissionsResult()鏂规硶銆?     */
     public static void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (mRequestCode != -1 && requestCode == mRequestCode) {
             if (verifyPermissions(grantResults)) {
@@ -109,14 +105,13 @@ public class MPermissionUtils {
     }
 
     /**
-     * 显示提示对话框
-     */
+     * 鏄剧ず鎻愮ず瀵硅瘽妗?     */
     public static void showTipsDialog(final Context context) {
         new AlertDialog.Builder(context)
-                .setTitle("提示信息")
+                .setTitle("鎻愮ず淇℃伅")
                 .setMessage("当前应用缺少必要权限，该功能暂时无法使用。如若需要，请单击【确定】按钮前往设置中心进行权限授权。")
-                .setNegativeButton("取消", null)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                .setNegativeButton("鍙栨秷", null)
+                .setPositiveButton("纭畾", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         startAppSettings(context);
@@ -125,7 +120,7 @@ public class MPermissionUtils {
     }
 
     /**
-     * 启动当前应用设置页面
+     * 鍚姩褰撳墠搴旂敤璁剧疆椤甸潰
      */
     private static void startAppSettings(Context context) {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -134,8 +129,7 @@ public class MPermissionUtils {
     }
 
     /**
-     * 验证权限是否都已经授权
-     */
+     * 楠岃瘉鏉冮檺鏄惁閮藉凡缁忔巿鏉?     */
     private static boolean verifyPermissions(int[] grantResults) {
         for (int grantResult : grantResults) {
             if (grantResult != PackageManager.PERMISSION_GRANTED) {
@@ -146,10 +140,9 @@ public class MPermissionUtils {
     }
 
     /**
-     * 获取权限列表中所有需要授权的权限
+     * 鑾峰彇鏉冮檺鍒楄〃涓墍鏈夐渶瑕佹巿鏉冪殑鏉冮檺
      *
-     * @param context     上下文
-     * @param permissions 权限列表
+     * @param context     涓婁笅鏂?     * @param permissions 鏉冮檺鍒楄〃
      * @return
      */
     private static List<String> getDeniedPermissions(Context context, String... permissions) {
@@ -163,9 +156,8 @@ public class MPermissionUtils {
     }
 
     /**
-     * 检查所传递对象的正确性
-     *
-     * @param object 必须为 activity or fragment
+     * 妫€鏌ユ墍浼犻€掑璞＄殑姝ｇ‘鎬?     *
+     * @param object 蹇呴』涓?activity or fragment
      */
     private static void checkCallingObjectSuitability(Object object) {
         if (object == null) {
@@ -173,7 +165,7 @@ public class MPermissionUtils {
         }
 
         boolean isActivity = object instanceof Activity;
-        boolean isSupportFragment = object instanceof android.support.v4.app.Fragment;
+        boolean isSupportFragment = object instanceof androidx.fragment.app.Fragment;
         boolean isAppFragment = object instanceof android.app.Fragment;
 
         if (!(isActivity || isSupportFragment || isAppFragment)) {
@@ -183,9 +175,8 @@ public class MPermissionUtils {
     }
 
     /**
-     * 检查所有的权限是否已经被授权
-     *
-     * @param permissions 权限列表
+     * 妫€鏌ユ墍鏈夌殑鏉冮檺鏄惁宸茬粡琚巿鏉?     *
+     * @param permissions 鏉冮檺鍒楄〃
      * @return
      */
     private static boolean checkPermissions(Context context, String... permissions) {
@@ -200,7 +191,7 @@ public class MPermissionUtils {
     }
 
     /**
-     * 判断当前手机API版本是否 >= 6.0
+     * 鍒ゆ柇褰撳墠鎵嬫満API鐗堟湰鏄惁 >= 6.0
      */
     private static boolean isOverMarshmallow() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;

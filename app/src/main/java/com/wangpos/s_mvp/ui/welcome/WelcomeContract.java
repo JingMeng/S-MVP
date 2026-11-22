@@ -1,7 +1,7 @@
 package com.wangpos.s_mvp.ui.welcome;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
 
 import com.wangpos.s_mvp.base.BaseModel;
 import com.wangpos.s_mvp.base.BasePresenter;

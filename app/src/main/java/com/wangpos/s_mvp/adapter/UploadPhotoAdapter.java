@@ -1,7 +1,7 @@
 package com.wangpos.s_mvp.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,8 +52,7 @@ public class UploadPhotoAdapter extends RecyclerView.Adapter<UploadPhotoAdapter.
     }
 
     /**
-     * 模拟不同的图片去不同的网络下载
-     * @param ivContent
+     * 妯℃嫙涓嶅悓鐨勫浘鐗囧幓涓嶅悓鐨勭綉缁滀笅杞?     * @param ivContent
      * @param position
      */
     private void loadImage(ImageView ivContent, Integer position) {
@@ -118,3 +117,4 @@ public class UploadPhotoAdapter extends RecyclerView.Adapter<UploadPhotoAdapter.
         presenter.onDetached();
     }
 }
+

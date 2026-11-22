@@ -2,7 +2,7 @@ package com.wangpos.s_mvp.ui.welcome;
 
 import android.content.Context;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
@@ -50,7 +50,7 @@ public class HeaderView extends LifeFrameLayout implements WelcomeContract.View 
     public void ON_CREATE() {
         super.ON_CREATE();
         InjectView.bind(this);
-        //notice 初始化presenter
+        //notice 鍒濆鍖杙resenter
         Log.i("info","MyObserver:ON_CREATE");
         smartTaskManager = SmartTaskManager.as();
         mPresenter = new WelcomePresenter();
@@ -97,3 +97,4 @@ public class HeaderView extends LifeFrameLayout implements WelcomeContract.View 
 
     }
 }
+

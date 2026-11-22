@@ -1,9 +1,9 @@
 package com.wangpos.s_mvp.ui.main;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,9 +24,8 @@ import java.util.List;
 /**
  * Created by qiyue on 2018/6/24.
  *
- * 添加移出动画，
- * 修改样式颜色
- * 添加详情演示
+ * 娣诲姞绉诲嚭鍔ㄧ敾锛? * 淇敼鏍峰紡棰滆壊
+ * 娣诲姞璇︽儏婕旂ず
  */
 
 public class MainActivity extends BaseActivity implements  RecyclerAdapter.OnClickListener{
@@ -51,15 +50,15 @@ public class MainActivity extends BaseActivity implements  RecyclerAdapter.OnCli
 
 
     private void initDatas(List<TimeModel> datas) {
-        datas.add(new TimeModel("2017/10/11","创建S-MVP项目，打造一个易于维护、易于测试、提高开发效率的架构"));
-        datas.add(new TimeModel("2017/12/1","引入谷歌MVP Contracts思想，接口统一化封装,减少类的创建"));
-        datas.add(new TimeModel("2017/12/12","引入AOP插件，跟优雅的监听和维护项目"));
-        datas.add(new TimeModel("2017/12/27","封装SmartTask添加多个网络请求顺序处理"));
-        datas.add(new TimeModel("2018/2/10","添加LifeCycle实现业务分离"));
+        datas.add(new TimeModel("2017/10/11","鍒涘缓S-MVP椤圭洰锛屾墦閫犱竴涓槗浜庣淮鎶ゃ€佹槗浜庢祴璇曘€佹彁楂樺紑鍙戞晥鐜囩殑鏋舵瀯"));
+        datas.add(new TimeModel("2017/12/1","寮曞叆璋锋瓕MVP Contracts鎬濇兂锛屾帴鍙ｇ粺涓€鍖栧皝瑁?鍑忓皯绫荤殑鍒涘缓"));
+        datas.add(new TimeModel("2017/12/12","寮曞叆AOP鎻掍欢锛岃窡浼橀泤鐨勭洃鍚拰缁存姢椤圭洰"));
+        datas.add(new TimeModel("2017/12/27","灏佽SmartTask娣诲姞澶氫釜缃戠粶璇锋眰椤哄簭澶勭悊"));
+        datas.add(new TimeModel("2018/2/10","娣诲姞LifeCycle瀹炵幇涓氬姟鍒嗙"));
         datas.add(new TimeModel("2018/3/2","添加插件化框架，实现轻量级View的注入"));
         datas.add(new TimeModel("2018/5/2","添加AOP切片，实现日志和缓存的代理，编译后期维护和修改"));
         datas.add(new TimeModel("2018/5/5","封装SmartTask添加多个网络异步请求，监听全部执行完成"));
-        datas.add(new TimeModel("2018/7/3","单独使用Retrofit获取天气信息"));
+        datas.add(new TimeModel("2018/7/3","鍗曠嫭浣跨敤Retrofit鑾峰彇澶╂皵淇℃伅"));
         datas.add(new TimeModel("2018/7/6","联合使用RxJava和Retrofit获取微信精选"));
         datas.add(new TimeModel("2018/7/10","福利社"));
 
@@ -100,3 +99,4 @@ public class MainActivity extends BaseActivity implements  RecyclerAdapter.OnCli
 
     }
 }
+

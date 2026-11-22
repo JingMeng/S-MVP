@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -44,11 +44,10 @@ public class UploadProgressView extends View {
     }
 
     /**
-     * 定义自定义属性
-     */
+     * 瀹氫箟鑷畾涔夊睘鎬?     */
     private int scrollTime = 1000;
 
-    private String text = "视频上传";
+    private String text = "瑙嗛涓婁紶";
 
     private int  maskColor = 0x33000000;
 
@@ -118,8 +117,7 @@ public class UploadProgressView extends View {
     }
 
     /**
-     * 动态改变显示区域
-     * @param canvas
+     * 鍔ㄦ€佹敼鍙樻樉绀哄尯鍩?     * @param canvas
      */
     @Override
     protected void onDraw(Canvas canvas) {
@@ -205,7 +203,7 @@ public class UploadProgressView extends View {
     }
 
     /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     * 鏍规嵁鎵嬫満鐨勫垎杈ㄧ巼浠?dp 鐨勫崟浣?杞垚涓?px(鍍忕礌)
      */
     public static float dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -213,10 +211,11 @@ public class UploadProgressView extends View {
     }
 
     /**
-     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     * 鏍规嵁鎵嬫満鐨勫垎杈ㄧ巼浠?px(鍍忕礌) 鐨勫崟浣?杞垚涓?dp
      */
     public static int px2dip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 }
+

@@ -3,7 +3,7 @@ package com.wangpos.s_mvp;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.wangpos.s_mvp.base.util.SpUtil;

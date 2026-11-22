@@ -1,6 +1,6 @@
 package com.wangpos.s_mvp.ui.asynctask;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 import com.wangpos.s_mvp.base.BaseModel;
 import com.wangpos.s_mvp.base.BasePresenter;
@@ -28,3 +28,4 @@ public interface AsyncTaskContract {
         }
     }
 }
+

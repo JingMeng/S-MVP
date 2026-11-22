@@ -2,13 +2,13 @@ package com.wangpos.s_mvp.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
  * Created by qiyue on 2018/6/29.
- * 等宽ImageView
+ * 绛夊ImageView
  */
 
 @SuppressLint("AppCompatCustomView")
@@ -32,3 +32,4 @@ public class SWImageView extends ImageView {
         setMeasuredDimension(widthMeasureSpec,widthMeasureSpec);
     }
 }
+

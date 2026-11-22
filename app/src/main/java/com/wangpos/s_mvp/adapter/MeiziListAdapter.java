@@ -6,7 +6,7 @@ package com.wangpos.s_mvp.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +30,7 @@ import java.util.List;
 public class MeiziListAdapter extends RecyclerView.Adapter {
 
     /**
-     * 针对多级参数合并的问题，创建两个集合是很好的解决方式
+     * 閽堝澶氱骇鍙傛暟鍚堝苟鐨勯棶棰橈紝鍒涘缓涓や釜闆嗗悎鏄緢濂界殑瑙ｅ喅鏂瑰紡
      */
     private List<OtherBean> otherBeanList = new ArrayList<>();
     private List<ListBean> listBeans = new ArrayList<>();
@@ -46,10 +46,10 @@ public class MeiziListAdapter extends RecyclerView.Adapter {
 
     private void initDatas(List<ContentlistBean> mList) {
         for (ContentlistBean data:mList) {
-            //只需要创建一个,减少内存开销
+            //鍙渶瑕佸垱寤轰竴涓?鍑忓皯鍐呭瓨寮€閿€
             OtherBean otherBean =  new OtherBean(data.getTitle(),data.getCt(),data.getTypeName());
             for (ListBean listBean:data.getList()) {
-                //多个引用指向一个 对象
+                //澶氫釜寮曠敤鎸囧悜涓€涓?瀵硅薄
                 listBeans.add(listBean);
                 otherBeanList.add(otherBean);
             }
@@ -112,9 +112,10 @@ public class MeiziListAdapter extends RecyclerView.Adapter {
     }
 
     /**
-     * 点击条目图片接口
+     * 鐐瑰嚮鏉＄洰鍥剧墖鎺ュ彛
      */
     public interface OnImageClickListener {
         void onImageClick(View view, int position);
     }
 }
+

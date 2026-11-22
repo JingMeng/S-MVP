@@ -1,6 +1,6 @@
 package com.wangpos.s_mvp.ui.wxnews;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.bindview.$;
@@ -9,26 +9,24 @@ import com.wangpos.s_mvp.base.BaseActivity;
 
 
 /**
- * 一个模块开发本步骤其实可以很多，因为个模块都是相互解耦的，所以其实不管怎么都应该先确定数据bean
+ * 涓€涓ā鍧楀紑鍙戞湰姝ラ鍏跺疄鍙互寰堝锛屽洜涓轰釜妯″潡閮芥槸鐩镐簰瑙ｈ€︾殑锛屾墍浠ュ叾瀹炰笉绠℃€庝箞閮藉簲璇ュ厛纭畾鏁版嵁bean
  *
- * 比如 第一种
- * 1.确定数据bean
- * 2.先写ApiService
- * 3.写Contract
- * 4.写Model
- * 5.写Presenter
- * 6.写View
- * 7.View关联Presenter
+ * 姣斿 绗竴绉? * 1.纭畾鏁版嵁bean
+ * 2.鍏堝啓ApiService
+ * 3.鍐機ontract
+ * 4.鍐橫odel
+ * 5.鍐橮resenter
+ * 6.鍐橵iew
+ * 7.View鍏宠仈Presenter
  *
- * 比如 第二种
- *
- * 1.确定数据bean
- * 2.写Contract
- * 3.写View
- * 4.View关联Presenter
- * 5.写presenter
- * 6.写model
- * 7.写ApiService
+ * 姣斿 绗簩绉? *
+ * 1.纭畾鏁版嵁bean
+ * 2.鍐機ontract
+ * 3.鍐橵iew
+ * 4.View鍏宠仈Presenter
+ * 5.鍐檖resenter
+ * 6.鍐檓odel
+ * 7.鍐橝piService
  *
  *
  */
@@ -48,3 +46,4 @@ public class WXNewsActivity extends BaseActivity {
 
     }
 }
+

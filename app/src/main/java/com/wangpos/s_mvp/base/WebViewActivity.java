@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -48,7 +48,7 @@ public class WebViewActivity extends Activity {
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 window.setStatusBarColor(activity.getResources().getColor(colorResId));
 
-                //底部导航栏
+                //搴曢儴瀵艰埅鏍?
                 //window.setNavigationBarColor(activity.getResources().getColor(colorResId));
             }
         } catch (Exception e) {
@@ -110,7 +110,7 @@ public class WebViewActivity extends Activity {
             }
            /* Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);*/
-//  下面这一行保留的时候，原网页仍报错，新网页正常.所以注释掉后，也就没问题了
+//  涓嬮潰杩欎竴琛屼繚鐣欑殑鏃跺€欙紝鍘熺綉椤典粛鎶ラ敊锛屾柊缃戦〉姝ｅ父.鎵€浠ユ敞閲婃帀鍚庯紝涔熷氨娌￠棶棰樹簡
 //          view.loadUrl(url);
             return true;
         }
@@ -123,13 +123,12 @@ public class WebViewActivity extends Activity {
     /*    this.enableAdjust();
         this.zoomedOut();
 */
-        webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);//设置js可以直接打开窗口，如window.open()，默认为false
-        webview.getSettings().setJavaScriptEnabled(true);//是否允许执行js，默认为false。设置true时，会提醒可能造成XSS漏洞
-        webview.getSettings().setSupportZoom(true);//是否可以缩放，默认true
-        webview.getSettings().setBuiltInZoomControls(true);//是否显示缩放按钮，默认false
-        webview.getSettings().setUseWideViewPort(true);//设置此属性，可任意比例缩放。大视图模式
-        webview.getSettings().setLoadWithOverviewMode(true);//和setUseWideViewPort(true)一起解决网页自适应问题
-        webview.getSettings().setAppCacheEnabled(true);//是否使用缓存
+        webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);//璁剧疆js鍙互鐩存帴鎵撳紑绐楀彛锛屽window.open()锛岄粯璁や负false
+        webview.getSettings().setJavaScriptEnabled(true);//鏄惁鍏佽鎵цjs锛岄粯璁や负false銆傝缃畉rue鏃讹紝浼氭彁閱掑彲鑳介€犳垚XSS婕忔礊
+        webview.getSettings().setSupportZoom(true);//鏄惁鍙互缂╂斁锛岄粯璁rue
+        webview.getSettings().setBuiltInZoomControls(true);//鏄惁鏄剧ず缂╂斁鎸夐挳锛岄粯璁alse
+        webview.getSettings().setUseWideViewPort(true);//璁剧疆姝ゅ睘鎬э紝鍙换鎰忔瘮渚嬬缉鏀俱€傚ぇ瑙嗗浘妯″紡
+        webview.getSettings().setLoadWithOverviewMode(true);//鍜宻etUseWideViewPort(true)涓€璧疯В鍐崇綉椤佃嚜閫傚簲闂
         webview.getSettings().setDomStorageEnabled(true);//DOM Storage
         webview.getSettings().setTextSize(WebSettings.TextSize.NORMAL);
 
@@ -143,7 +142,6 @@ public class WebViewActivity extends Activity {
 
     private void enableCaching() {\
         this.webview.getSettings().setAppCachePath(getFilesDir() + getPackageName() + "/cache");
-        this.webview.getSettings().setAppCacheEnabled(true);
         this.webview.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
     }
 
@@ -208,3 +206,4 @@ public class WebViewActivity extends Activity {
 
 
 }
+

@@ -1,6 +1,6 @@
 package com.wangpos.s_mvp.ui.retrofit;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.bindview.$;
@@ -24,3 +24,4 @@ public class RetrofitSampleActivity extends BaseActivity {
         getLifecycle().addObserver(weatherView);
     }
 }
+
